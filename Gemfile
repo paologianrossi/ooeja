@@ -15,6 +15,7 @@ gem "jbuilder", "~> 2.6"
 gem "acts-as-taggable-on", "~> 4.0"
 gem "pry-rails", "~> 0.3"
 gem "awesome_print", "~> 1.7"
+gem "pismo", "~> 0.7"
 
 group :development, :test do
   gem "byebug", "~> 9.0", platform: :mri
