@@ -1,7 +1,7 @@
 .form-box
   .form-box-header
-    .title Add a bookmark!
-  .form-box-body
+    .title = link_to "Add a bookmark!", "#form-box-body", data: {toggle: "collapse"}
+  .form-box-body.collapse#form-box-body
     = form_for @bookmark do |f|
       - if @bookmark.errors.any?
         #error_explanation
