@@ -1,18 +1,19 @@
-= form_for @bookmark do |f|
-  - if @bookmark.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved:"
-      ul
-        - @bookmark.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :url
-    = f.text_field :url
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :notes
-    = f.text_area :notes
-  .actions = f.submit
+.form-box
+  .form-box-header
+    .title Add a bookmark!
+  .form-box-body
+    = form_for @bookmark do |f|
+      - if @bookmark.errors.any?
+        #error_explanation
+          .alert.alert-dismissable.alert-danger
+            h2 = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved"
+            ul
+              - @bookmark.errors.full_messages.each do |message|
+                li = message
+      .field
+        = f.text_field :url, placeholder: "URL"
+      .field
+        = f.text_field :title, placeholder: "Title"
+      .field
+        = f.text_area :notes, placeholder: "Notes"
+      = f.submit "Create bookmark", class: "btn btn-primary"

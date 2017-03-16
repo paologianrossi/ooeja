@@ -1,0 +1,98 @@
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.column {
+    @extend .col-md-6;
+    @extend .text-center;
+}
+
+.form {
+    @extend .col-md-6;
+}
+
+.form-centered {
+    @extend .col-md-6;
+    @extend .text-center;
+}
+
+.submit {
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .btn-lg;
+}
+
+main {
+    @extend .container;
+    background-color: #fff;
+    padding-bottom: 80px;
+    width: 100%;
+    margin-top: 51px; // accommodate the navbar
+}
+
+section {
+    @extend .row;
+    margin-top: 20px;
+}
+
+.bookmark-box {
+    @extend .panel;
+    @extend .panel-info;
+}
+
+.bookmark-header {
+    @extend .panel-heading;
+    .title {
+        @extend .panel-title;
+    }
+}
+
+.bookmark-body {
+    @extend .panel-body;
+}
+
+.form-box {
+    @extend .panel;
+    @extend .panel-default;
+}
+
+.form-box-header {
+    @extend .panel-heading;
+    .title {
+        @extend .panel-title;
+    }
+}
+
+.form-box-body {
+    @extend .panel-body;
+}
+
+
+.field {
+    @extend .form-group;
+}
+
+input, textarea {
+    @extend .form-control;
+}
+
+#error_explanation {
+    h2 {
+        font-size: 1.6em;
+        font-weight: 300;
+    }
+    ul {
+        list-style-type: none;
+        font-size: 1.2em;
+    }
+    margin: 0 auto;
+    .alert {
+        padding: 0 20px 20px 20px;
+    }
+}
+.field_with_errors {
+    @extend .has-error;
+    .form-control {
+        color: $state-danger-text;
+    }
+}
