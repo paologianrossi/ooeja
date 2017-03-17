@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
 
   def index
     @bookmarks = Bookmark.order(updated_at: :desc)

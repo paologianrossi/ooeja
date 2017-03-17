@@ -1,0 +1,5 @@
+li.dropdown
+  = dropdown_link current_user.name
+  ul.dropdown-menu
+    li = link_to "Edit account", "#"
+    li = link_to "Logout", logout_path

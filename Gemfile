@@ -16,6 +16,9 @@ gem "acts-as-taggable-on", "~> 4.0"
 gem "pry-rails", "~> 0.3"
 gem "awesome_print", "~> 1.7"
 gem "pismo", "~> 0.7"
+gem "bcrypt", "~> 3.1"
+gem "jwt", "~> 1.5"
+gem "simple_command", "~> 0.0"
 
 group :development, :test do
   gem "byebug", "~> 9.0", platform: :mri

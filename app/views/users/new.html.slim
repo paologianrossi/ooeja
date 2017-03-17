@@ -1,0 +1,22 @@
+.form-box
+  .form-box-header
+    .title = link_to "Create an account", "#form-box-body", data: {toggle: "collapse"}
+  .form-box-body
+    = form_for @user do |f|
+      - if @user.errors.any?
+        #error_explanation
+          .alert.alert-danger
+            h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved"
+            ul
+              - @user.errors.full_messages.each do |message|
+                li = message
+      .field
+        = f.text_field :name, placeholder: "Name"
+      .field
+        = f.text_field :email, placeholder: "Email"
+      .field
+        = f.password_field :password, placeholder: "Password"
+      .field
+        = f.password_field :password_confirmation, placeholder: "Confirm password"
+
+      = f.submit "Create account", class: "btn btn-primary"

@@ -11,3 +11,7 @@ nav
     .collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         == render 'layouts/navigation_links'
+        - if current_user
+          == render 'layouts/user_navlinks'
+        - else
+          == render 'layouts/visitor_navlinks'

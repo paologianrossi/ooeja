@@ -1,0 +1,11 @@
+.form-box
+  .form-box-header
+    .title = link_to "Login", "#form-box-body", data: {toggle: "collapse"}
+  .form-box-body
+    = form_tag login_path do
+      .field
+        = text_field_tag :email, "", placeholder: "Email"
+      .field
+        = password_field_tag :password, "", placeholder: "Password"
+
+      = submit_tag "Login", class: "btn btn-primary"

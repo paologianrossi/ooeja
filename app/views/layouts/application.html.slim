@@ -11,8 +11,9 @@ html
   body
     header
       == render 'layouts/navigation'
-    main[role="main"]
+    .content
       == render 'layouts/messages'
-      section
-        .col-md-6.col-md-offset-3
-          == yield
+      main[role="main"]
+        section
+          .col-md-6.col-md-offset-3
+            == yield
