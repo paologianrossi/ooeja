@@ -1,9 +1,9 @@
 class BookmarksController < ApplicationController
-  before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
+  before_action :set_authorized_bookmark, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
   def index
-    @bookmarks = Bookmark.order(updated_at: :desc)
+    @bookmarks = current_user.bookmarks.order(updated_at: :desc)
     @bookmark = Bookmark.new
   end
 
@@ -16,6 +16,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.user = current_user
 
     respond_to do |format|
       if @bookmark.save
@@ -50,12 +51,14 @@ class BookmarksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_bookmark
+    def set_authorized_bookmark
       @bookmark = Bookmark.find(params[:id])
+      redirect_to bookmarks_path, notice: "Not authorized to operate on this bookmark" unless current_user == @bookmark.user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
       params.require(:bookmark).permit(:url, :title, :notes, :tag_list)
     end
+
 end

@@ -38,6 +38,7 @@ gem "bootstrap-sass", "~> 3.3"
 gem "high_voltage", "~> 3.0"
 gem "pg", "~> 0.20"
 gem "slim-rails", "~> 3.1"
+
 group :development do
   gem "better_errors", "~> 2.1"
   gem "guard-bundler", "~> 2.1"
@@ -49,6 +50,7 @@ group :development do
   gem "rb-inotify", "~> 0.9", :require=>false
   gem "spring-commands-rspec", "~> 1.0"
 end
+
 group :development, :test do
   gem "factory_girl_rails", "~> 4.8"
   gem "faker", "~> 1.7"

@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    logger.debug("Current user: #{current_user}")
     redirect_to login_path, notice: "Please login to continue" unless current_user
   end
 
