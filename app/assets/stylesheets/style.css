@@ -1,6 +1,4 @@
 // import the CSS framework
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 html {
     font-weight: 200;

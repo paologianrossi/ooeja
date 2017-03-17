@@ -19,6 +19,7 @@ gem "pismo", "~> 0.7"
 gem "bcrypt", "~> 3.1"
 gem "jwt", "~> 1.5"
 gem "simple_command", "~> 0.0"
+gem "font-awesome-rails", "~> 4.7"
 
 group :development, :test do
   gem "byebug", "~> 9.0", platform: :mri
