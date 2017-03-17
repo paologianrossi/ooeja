@@ -2,6 +2,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+    font-weight: 200;
+    font-size: 1.2em;
+}
+
 .column {
     @extend .col-md-6;
     @extend .text-center;
@@ -39,19 +44,20 @@ section {
 }
 
 .bookmark-box {
-    @extend .panel;
-    @extend .panel-info;
-}
-
-.bookmark-header {
-    @extend .panel-heading;
-    .title {
-        @extend .panel-title;
+    @extend .well;
+    background-color: white;
+    border-radius: 2px;
+    padding-top: 0;
+    color: darken($text-muted, 15%);
+    font-size: 1.1em;
+    font-weight: 100;
+    h3 {
+        font-size: 1.2em;
+        font-weight: 300;
+        a {
+            color: darken($brand-primary, 30%);
+        }
     }
-}
-
-.bookmark-body {
-    @extend .panel-body;
 }
 
 .form-box {
@@ -63,6 +69,8 @@ section {
     @extend .panel-heading;
     .title {
         @extend .panel-title;
+        font-size: 1.2em;
+        font-weight: 300;
     }
 }
 
