@@ -1,19 +1,15 @@
-.form-box
-  .form-box-header
-    .title = link_to "Add a bookmark!", "#form-box-body", data: {toggle: "collapse"}
-  .form-box-body.collapse#form-box-body
-    = form_for @bookmark do |f|
-      - if @bookmark.errors.any?
-        #error_explanation
-          .alert.alert-dismissable.alert-danger
-            h2 = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved"
-            ul
-              - @bookmark.errors.full_messages.each do |message|
-                li = message
-      .field
-        = f.text_field :url, placeholder: "URL"
-      .field
-        = f.text_field :title, placeholder: "Title"
-      .field
-        = f.text_area :notes, placeholder: "Notes"
-      = f.submit "Create bookmark", class: "btn btn-primary"
+= form_for @bookmark do |f|
+  - if @bookmark.errors.any?
+    #error_explanation
+      .alert.alert-dismissable.alert-danger
+        h2 = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved"
+        ul
+          - @bookmark.errors.full_messages.each do |message|
+            li = message
+  .field
+    = f.text_field :url, placeholder: "URL"
+  .field
+    = f.text_field :title, placeholder: "Title"
+  .field
+    = f.text_area :notes, placeholder: "Notes"
+  = f.submit "Save bookmark", class: "btn btn-primary"

@@ -1,8 +1,7 @@
-h1 Editing bookmark
-
-== render 'form'
-
-= link_to 'Show', @bookmark
-'  |
-= link_to 'Back', bookmarks_path
-
+.form-box
+  .form-box-header
+    .title = link_to "Edit bookmark"
+  .form-box-body#form-box-body
+    == render 'form'
+    br
+    = link_to '« Back', bookmarks_path

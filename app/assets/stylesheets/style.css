@@ -56,6 +56,12 @@ section {
             color: darken($brand-primary, 30%);
         }
     }
+    h4 {
+        color: $text-muted;
+        font-size: small;
+        font-weight: 150;
+        font-style: italic;
+    }
 }
 
 .form-box {
@@ -170,4 +176,18 @@ nav {
     margin: 0;
     width: 100%;
     border-radius: 0;
+}
+
+a.delete-icon {
+    color: $text-muted;
+    &:hover, &:active {
+                 color: $state-danger-text;
+             }
+}
+
+a.edit-icon {
+    color: $text-muted;
+    &:hover, &:active {
+                 color: $brand-primary;
+             }
 }
