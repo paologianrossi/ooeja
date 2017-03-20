@@ -1,11 +1,11 @@
 .form-box
   .form-box-header
+    h2 Bookmarks
     = form_tag bookmarks_path, method: :get do
       .field.input-group
         = search_field_tag :q, @search.query.query, placeholder: "Search..."
         span.input-group-btn
           button type="submit" class="btn btn-default" = fa_icon "search"
-    br
     = link_to fa_icon("plus", text: "Add a bookmark"), "#form-box-body", data: {toggle: "collapse"}
     #form-box-body class="form-box-body collapse #{'in' if @bookmark.errors.any?}"
       = render "form"

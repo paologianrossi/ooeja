@@ -3,13 +3,15 @@
 html {
     font-weight: 200;
     font-size: 1.2em;
-    font-style: italic;
 }
 
 h2 {
-    font-weight: 200;
+    font-weight: 100;
     color: $brand-primary;
-    font-size: 1.4em;
+    font-size: 1.9em;
+    padding: 0;
+    padding-bottom: 12px;
+    margin: 0;
 }
 
 .tag {
