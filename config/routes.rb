@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :bookmarks
+  resources :bookmarks do
+    get :autocomplete_tag_name, on: :collection
+  end
 
   root to: "bookmarks#index"
 

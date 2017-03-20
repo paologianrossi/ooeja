@@ -3,7 +3,7 @@ h2 == @scope == 'all' ? "All your bookmarks" : "Bookmarks tagged '#{@scope}' #{l
 .form-box
   .form-box-header
     .title = link_to "Add a bookmark!", "#form-box-body", data: {toggle: "collapse"}
-  .form-box-body.collapse#form-box-body
+  #form-box-body class="form-box-body collapse #{'in' if @bookmark.errors.any?}"
     = render "form"
 
 - @bookmarks.each do |bookmark|

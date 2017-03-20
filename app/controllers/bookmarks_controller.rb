@@ -2,6 +2,8 @@ class BookmarksController < ApplicationController
   before_action :set_authorized_bookmark, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
+
   def index
     search = SearchTagged.(params[:q], current_user.id, Bookmark).result
     @bookmarks = search.records
@@ -25,7 +27,12 @@ class BookmarksController < ApplicationController
         format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully created.' }
         format.json { render :show, status: :created, location: @bookmark }
       else
-        format.html { render :new }
+        format.html {
+          search = SearchTagged.(params[:q], current_user.id, Bookmark).result
+          @bookmarks = search.records
+          @scope = search.query.tag || "all"
+          render :index
+        }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
       end
     end

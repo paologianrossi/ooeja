@@ -11,4 +11,9 @@ module ApplicationHelper
     link_to(label, "#", full_options)
   end
 
+  def brand(name = 'Ooeja')
+    classes = ["navbar-brand"]
+    classes << "dev-brand" if Rails.env == "development"
+    link_to name, root_path, class: classes.join(" ")
+  end
 end

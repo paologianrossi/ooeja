@@ -2,7 +2,7 @@
   - if @bookmark.errors.any?
     #error_explanation
       .alert.alert-dismissable.alert-danger
-        h2 = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved"
+        h2 = "#{pluralize(@bookmark.errors.count, "error")} prohibited this bookmark from being saved:"
         ul
           - @bookmark.errors.full_messages.each do |message|
             li = message
@@ -13,5 +13,6 @@
   .field
     = f.text_area :notes, placeholder: "Notes"
   .field
-    = f.text_field :tag_list, placeholder: "Tags (comma separated)"
+    = f.autocomplete_field :tag_list, autocomplete_tag_name_bookmarks_path, placeholder: "Tags (comma separated)",  "data-delimiter" => ",", :multiple => true
+
   = f.submit "Save bookmark", class: "btn btn-primary"
