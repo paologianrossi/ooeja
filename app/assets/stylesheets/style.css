@@ -268,3 +268,9 @@ a.edit-icon {
     -moz-border-radius: 0px;
     background-image: none;
 }
+
+.form-control-inline {
+    min-width: 0;
+    width: auto;
+    display: inline;
+}

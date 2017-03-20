@@ -4,7 +4,7 @@
   .form-box-body
     = form_tag login_path do
       .field
-        = text_field_tag :email, "", placeholder: "Email"
+        = email_field_tag :email, "", placeholder: "Email"
       .field
         = password_field_tag :password, "", placeholder: "Password"
 
