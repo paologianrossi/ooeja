@@ -28,9 +28,10 @@ gem "high_voltage", "~> 3.0"
 gem "pg", "~> 0.20"
 gem "slim-rails", "~> 3.1"
 gem "valid_url", "~> 0.0"
-gem "searchkick"
-gem "typhoeus"
-gem "oj"
+gem "searchkick", "~> 2.1"
+gem "typhoeus", "~> 1.1"
+gem "oj", "~> 2.18"
+gem "rack-timeout", "~> 0.4"
 
 group :development do
   gem "web-console", "~> 3.4"
