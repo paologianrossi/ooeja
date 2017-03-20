@@ -1,6 +1,8 @@
 class SearchTagged
   prepend SimpleCommand
 
+  attr_reader :query
+
   def initialize(query, user=nil, klass=Bookmark)
     @query = Query.new(query)
     @user = user
@@ -14,6 +16,12 @@ class SearchTagged
   def search
     return @klass.esearch(@query.text, where: { tag: @query.tag, user_id: @user }) if @query.tag
     @klass.esearch(@query.text, where: { "user_id" => @user })
+  end
+
+  def to_s
+    class_name = @klass.name.humanize.downcase
+
+    query.empty? ? "All #{class_name.pluralize(0)}" : "#{class_name.pluralize(0).capitalize} #{query}"
   end
 
   class Query
@@ -36,6 +44,16 @@ class SearchTagged
         text.replace(text.blank? ? "*" : text)
       end
     end
+
+    def to_s
+      tagged = "tagged '#{tag}'" if tag
+      matching = "matching '#{text}'" unless text == '*'
+      [tagged, matching].compact.join(" and ")
+    end
+
+    def empty?
+      text == "*" && tag.nil?
+    end
   end
 
   class Results
@@ -44,7 +62,7 @@ class SearchTagged
     def initialize(query, records)
       @query = query
       @records = records
-      freeze
     end
+
   end
 end

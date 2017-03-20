@@ -5,9 +5,7 @@ class BookmarksController < ApplicationController
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
 
   def index
-    search = SearchTagged.(params[:q], current_user.id, Bookmark).result
-    @bookmarks = search.records
-    @scope = search.query.tag || "all"
+    @search = SearchTagged.(params[:q], current_user.id, Bookmark)
     @bookmark = Bookmark.new
   end
 

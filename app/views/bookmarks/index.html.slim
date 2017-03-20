@@ -1,10 +1,9 @@
-h2 == @scope == 'all' ? "All your bookmarks" : "Bookmarks tagged '#{@scope}' #{link_to '(Clear)', bookmarks_path, class: 'small text-muted'}"
-
 .form-box
   .form-box-header
     .title = link_to "Add a bookmark!", "#form-box-body", data: {toggle: "collapse"}
   #form-box-body class="form-box-body collapse #{'in' if @bookmark.errors.any?}"
     = render "form"
 
-- @bookmarks.each do |bookmark|
+h2 = @search.to_s
+- @search.result.records.each do |bookmark|
   = render bookmark
