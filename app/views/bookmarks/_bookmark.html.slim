@@ -10,3 +10,4 @@
         = link_to(edit_bookmark_path(bookmark), class: "edit-icon") { fa_icon "edit" }
 
   = bookmark.notes
+  = render "tags", bookmark: bookmark

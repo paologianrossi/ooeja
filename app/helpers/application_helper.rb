@@ -10,4 +10,5 @@ module ApplicationHelper
     label = "#{text} <span class='caret'></span>".html_safe
     link_to(label, "#", full_options)
   end
+
 end

@@ -3,7 +3,9 @@ class BookmarksController < ApplicationController
   before_action :authorize
 
   def index
-    @bookmarks = current_user.bookmarks.order(updated_at: :desc)
+    search = SearchTagged.(params[:q], current_user.id, Bookmark).result
+    @bookmarks = search.records
+    @scope = search.query.tag || "all"
     @bookmark = Bookmark.new
   end
 
@@ -32,7 +34,7 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
-        format.html { redirect_to @bookmark, notice: 'Bookmark was successfully updated.' }
+        format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully updated.' }
         format.json { render :show, status: :ok, location: @bookmark }
       else
         format.html { render :edit }

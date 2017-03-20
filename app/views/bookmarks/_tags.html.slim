@@ -1,0 +1,4 @@
+.tags
+  - bookmark.tag_list.map do |tag|
+    span.tag = link_to tag, bookmarks_path(q: "tag:#{tag}")
+    |&nbsp;

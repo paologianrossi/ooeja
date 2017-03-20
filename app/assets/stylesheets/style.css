@@ -3,6 +3,24 @@
 html {
     font-weight: 200;
     font-size: 1.2em;
+    font-style: italic;
+}
+
+h2 {
+    font-weight: 200;
+    color: $brand-primary;
+    font-size: 1.4em;
+}
+
+.tag {
+    @extend .label;
+    @extend .label-info;
+    a {
+        color: $label-color;
+        &:hover, &:active, &:focus {
+                               color: $label-color;
+                           }
+    }
 }
 
 .column {
