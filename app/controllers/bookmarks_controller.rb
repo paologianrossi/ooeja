@@ -2,10 +2,10 @@ class BookmarksController < ApplicationController
   before_action :set_authorized_bookmark, only: [:show, :edit, :update, :destroy]
   before_action :authorize
 
-  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
+  autocomplete :tag, :name, class_name: "ActsAsTaggableOn::Tag"
 
   def index
-    @search = SearchTagged.(params[:q], current_user.id, Bookmark)
+    @search = SearchTagged.call(params[:q], current_user.id, Bookmark)
     @bookmark = Bookmark.new
   end
 

@@ -1,1 +1,1 @@
-json.array! @bookmarks, partial: 'bookmarks/bookmark', as: :bookmark
+json.array! @search.result.records, partial: 'bookmarks/bookmark', as: :bookmark
