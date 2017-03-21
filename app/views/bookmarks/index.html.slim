@@ -12,3 +12,5 @@
 br
 - @search.result.records.each do |bookmark|
   = render bookmark
+
+= paginate(@search.result.records)

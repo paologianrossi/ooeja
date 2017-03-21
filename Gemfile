@@ -34,6 +34,7 @@ gem "typhoeus", "~> 1.1"
 gem "oj", "~> 2.18"
 gem "rack-timeout", "~> 0.4"
 gem "rails-jquery-autocomplete", "~> 1.0"
+gem "kaminari", "~> 0.17"
 
 group :development do
   gem "web-console", "~> 3.4"
@@ -62,4 +63,5 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.8"
   gem "rspec-rails", "~> 3.5"
   gem "byebug", "~> 9.0", platform: :mri
+  gem "faker", "~> 1.7"
 end

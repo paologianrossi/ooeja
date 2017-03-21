@@ -133,7 +133,7 @@ input, textarea {
     }
 }
 
-nav {
+nav.bar {
     @extend .navbar;
     @extend .navbar-fixed-top;
 

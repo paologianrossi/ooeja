@@ -3,10 +3,12 @@ class SearchTagged
 
   attr_reader :query
 
-  def initialize(query, user=nil, klass=Bookmark)
+  def initialize(query, page: nil, per_page: Kaminari.config.default_per_page, user: nil, klass: Bookmark)
     @query = Query.new(query)
     @user = user
     @klass = klass
+    @page = page
+    @per_page
   end
 
   def call
@@ -14,8 +16,8 @@ class SearchTagged
   end
 
   def search
-    return @klass.esearch(@query.text, where: { tag: @query.tag, user_id: @user }) if @query.tag
-    @klass.esearch(@query.text, where: { "user_id" => @user })
+    return @klass.esearch(@query.text, where: { tag: @query.tag, user_id: @user }, page: @page, per_page: per_page) if @query.tag
+    @klass.esearch(@query.text, where: { "user_id" => @user }, page: @page, per_page: 20)
   end
 
   def to_s
