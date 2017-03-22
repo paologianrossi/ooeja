@@ -13,6 +13,6 @@
   .field
     = f.text_area :notes, placeholder: "Notes"
   .field
-    = f.autocomplete_field :tag_list, autocomplete_tag_name_bookmarks_path, placeholder: "Tags (comma separated)",  "data-delimiter" => ",", :multiple => true
+    = f.autocomplete_field :tag_list, autocomplete_tag_name_bookmarks_path, value: @bookmark.tag_list.to_s, placeholder: "Tags (comma separated)",  "data-delimiter" => ",", :multiple => true
 
   = f.submit "Save bookmark", class: "btn btn-primary"
