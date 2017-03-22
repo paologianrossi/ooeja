@@ -35,6 +35,7 @@ gem "oj", "~> 2.18"
 gem "rack-timeout", "~> 0.4"
 gem "rails-jquery-autocomplete", "~> 1.0"
 gem "kaminari", "~> 0.17"
+gem "sanitize", "~> 4.4"
 
 group :development do
   gem "web-console", "~> 3.4"

@@ -1,13 +1,13 @@
 .bookmark-box
   .row
     .col-md-9
-      h3 = link_to bookmark, bookmark
-      h4 = bookmark.url
+      h3 = link_to highlighted(bookmark, :title), bookmark
+      h4 = highlighted bookmark, :url
     .col-md-3
       h3.text-right
         = link_to(bookmark, method: :delete, class: "delete-icon", data: {confirm: "Really remove this bookmark?"}) { fa_icon "trash-o" }
         == "&nbsp;"
         = link_to(edit_bookmark_path(bookmark), class: "edit-icon") { fa_icon "edit" }
 
-  = bookmark.notes
+  = highlighted bookmark, :notes
   = render "tags", bookmark: bookmark

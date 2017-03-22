@@ -1,5 +1,5 @@
-RSpec.describe SearchTagged do
-  describe SearchTagged::Query do
+RSpec.describe Search do
+  describe Search::Query do
     context "given an empty query" do
       it "has a nil tag" do
         query = described_class.new("")

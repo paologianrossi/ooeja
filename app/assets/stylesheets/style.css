@@ -276,3 +276,7 @@ a.edit-icon {
     width: auto;
     display: inline;
 }
+
+em {
+    background-color: yellow;
+}

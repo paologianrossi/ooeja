@@ -1,6 +1,7 @@
 class Bookmark < ApplicationRecord
   acts_as_taggable
-  searchkick
+  searchkick highlight: [:title, :url, :notes]
+  before_save :sanitize
 
   validates :url, presence: true, url: true
 
@@ -15,8 +16,12 @@ class Bookmark < ApplicationRecord
     )
   end
 
-  def to_s
-    title.blank? ? url : title
+  def self.search_fields
+    @@search_fields ||= new.search_data.keys
   end
 
+  def sanitize
+    self.title = Sanitize.fragment(title)
+    self.notes = Sanitize.fragment(notes)
+  end
 end
