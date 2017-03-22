@@ -214,7 +214,11 @@ a.edit-icon {
 }
 
 .dev-brand {
-    color: red !important;
+    background: red;
+    color: white !important;
+    &:visited {
+        color: white !important;
+    }
 }
 
 
