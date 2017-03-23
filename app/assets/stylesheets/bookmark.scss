@@ -1,0 +1,69 @@
+.tag {
+    @extend .label;
+    @extend .label-info;
+    a {
+        color: $label-color;
+        &:hover, &:active, &:focus {
+                               color: $label-color;
+                           }
+    }
+}
+
+.bookmark-box {
+    @extend .well;
+    background-color: white;
+    border-radius: 2px;
+    padding-top: 0;
+    color: darken($text-muted, 15%);
+    font-size: 1.1em;
+    font-weight: 100;
+    h3 {
+        font-size: 1.2em;
+        font-weight: 300;
+        a {
+            color: darken($brand-primary, 30%);
+        }
+    }
+    h4 {
+        color: $text-muted;
+        font-size: small;
+        font-weight: 150;
+        font-style: italic;
+    }
+}
+
+.form-box {
+    @extend .panel;
+    @extend .panel-default;
+}
+
+.form-box-header {
+    @extend .panel-heading;
+    .title {
+        @extend .panel-title;
+        font-size: 1.2em;
+        font-weight: 300;
+    }
+}
+
+.form-box-body {
+    @extend .panel-body;
+}
+
+a.delete-icon {
+    color: $text-muted;
+    &:hover, &:active {
+                 color: $state-danger-text;
+             }
+}
+
+a.edit-icon {
+    color: $text-muted;
+    &:hover, &:active {
+                 color: $brand-primary;
+             }
+}
+
+em {
+    background-color: yellow;
+}
