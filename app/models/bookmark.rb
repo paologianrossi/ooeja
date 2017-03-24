@@ -4,6 +4,7 @@ class Bookmark < ApplicationRecord
   before_save :sanitize
 
   validates :url, presence: true, url: true
+  validates :user, presence: true
 
   belongs_to :user
 

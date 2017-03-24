@@ -31,28 +31,4 @@ RSpec.describe Bookmark, type: :model do
   it "requires a user" do
     expect(FactoryGirl.build(:bookmark, user: nil)).not_to be_valid
   end
-
-  describe "#to_s" do
-    context "when a title is available" do
-      it "is the title" do
-        bookmark = FactoryGirl.build(:bookmark, title: "foobar")
-        expect(bookmark.to_s).to eq "foobar"
-      end
-    end
-    context "when the title is missing" do
-      it "is the url" do
-        bookmark = FactoryGirl.build(:bookmark, title: "")
-        expect(bookmark.to_s).to eq bookmark.url
-      end
-    end
-  end
-
-  describe ".search" do
-    before { @bookmarks = [FactoryGirl.create(:bookmark, title: "foo"), FactoryGirl.create(:bookmark, title: "bar"), FactoryGirl.create(:bookmark, title: "baz")] }
-    context "when there is no search string" do
-      it "returns all bookmarks" do
-        expect(Bookmark.search(nil).to_a).to eq @bookmarks
-      end
-    end
-  end
 end
