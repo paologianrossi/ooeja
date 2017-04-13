@@ -51,6 +51,7 @@ group :development do
   gem "rb-fsevent", "~> 0.9", :require=>false
   gem "rb-inotify", "~> 0.9", :require=>false
   gem "spring-commands-rspec", "~> 1.0"
+  gem "meta_request"
 end
 
 group :test do
